@@ -33,14 +33,14 @@ export abstract class ClackBaseGenerator extends Generator {
 	/**
 	 * Set the intro message for the generator session.
 	 */
-	setIntroText(message: string) {
+	set intro(message: string) {
 		intro(message);
 	}
 
 	/**
 	 * Set the outro message for the generator session.
 	 */
-	setOutroText(message: string) {
+	set outro(message: string) {
 		outro(message);
 	}
 
@@ -51,10 +51,7 @@ export abstract class ClackBaseGenerator extends Generator {
 	 * @param storage Optional storage object or property name
 	 * @returns Questions array with stored defaults applied
 	 */
-	protected loadStoredDefaults<Q extends { name: string; store?: boolean }>(
-		questions: Q[],
-		storage?: Storage | string,
-	): Q[] {
+	protected loadSession<Q extends { name: string; store?: boolean }>(questions: Q[], storage?: Storage | string): Q[] {
 		const storageObj = this.getStorageObject(storage);
 
 		return questions.map((q) => {
@@ -76,7 +73,7 @@ export abstract class ClackBaseGenerator extends Generator {
 	 * @param answers The answers object
 	 * @param storage Optional storage object or property name
 	 */
-	protected saveAnswers<Q extends { name: string; store?: boolean }>(
+	protected saveSession<Q extends { name: string; store?: boolean }>(
 		questions: Q[],
 		answers: Record<string, any>,
 		storage?: Storage | string,

@@ -9,7 +9,7 @@ import { ClackBaseGenerator } from './base.ts';
  * This generator provides access to all Clack-specific prompt options like
  * `initialValue`, `options`, `hint`, etc.
  *
- * For Inquirer-compatible API, use ClackCompatGenerator instead.
+ * For Inquirer-compatible API, use {@see ClackCompatGenerator} instead.
  */
 export class ClackGenerator extends ClackBaseGenerator {
 	constructor(args?: string | string[], opts?: BaseOptions) {
@@ -21,10 +21,10 @@ export class ClackGenerator extends ClackBaseGenerator {
 		storage?: Storage | string,
 	): Promise<A> {
 		const questionsArray = Array.isArray(questions) ? questions : [questions];
-		const questionsWithDefaults = this.loadStoredDefaults(questionsArray, storage);
+		const questionsWithDefaults = this.loadSession(questionsArray, storage);
 		const answers = (await this.env.adapter.prompt(questionsWithDefaults)) as A;
 
-		this.saveAnswers(questionsArray, answers, storage);
+		this.saveSession(questionsArray, answers, storage);
 
 		return answers;
 	}

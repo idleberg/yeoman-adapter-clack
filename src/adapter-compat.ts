@@ -164,7 +164,7 @@ export class ClackCompatAdapter extends TerminalAdapter {
 					message,
 					initialValue: defaultValue?.toString(),
 					validate: (value) => {
-						if (value && isNaN(Number(value))) {
+						if (value && Number.isNaN(Number(value))) {
 							return 'Please enter a valid number';
 						}
 						return validate ? validate(value) : undefined;

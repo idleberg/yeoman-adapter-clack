@@ -10,7 +10,7 @@ import { ClackBaseGenerator } from './base.ts';
  * to Clack prompts internally. It provides compatibility with existing Yeoman
  * generators that use Inquirer.
  *
- * For pure Clack API with Clack-specific options, use ClackGenerator instead.
+ * For pure Clack API with Clack-specific options, use {@see ClackGenerator} instead.
  */
 export class ClackCompatGenerator extends ClackBaseGenerator {
 	constructor(args?: string | string[], opts?: BaseOptions) {
@@ -22,10 +22,10 @@ export class ClackCompatGenerator extends ClackBaseGenerator {
 		storage?: Storage | string,
 	): Promise<A> {
 		const questionsArray = Array.isArray(questions) ? questions : [questions];
-		const questionsWithDefaults = this.loadStoredDefaults(questionsArray, storage);
+		const questionsWithDefaults = this.loadSession(questionsArray, storage);
 		const answers = (await this.env.adapter.prompt(questionsWithDefaults as any)) as A;
 
-		this.saveAnswers(questionsArray, answers, storage);
+		this.saveSession(questionsArray, answers, storage);
 
 		return answers;
 	}
