@@ -19,6 +19,11 @@ npm install yeoman-adapter-clack
 
 To make use of this adapter, you need to overwrite the default one.
 
+> [!TIP]
+>
+> For easy migration, you can import `ClackCompatAdapter` instead. Unlike the
+> default adapter, it's API-compatible with Inquirer.
+
 ```typescript
 import { ClackAdapter } from "yeoman-adapter-clack";
 import { createEnv } from "yeoman-environment";
@@ -41,11 +46,6 @@ export default class extends Generator {
 	}
 }
 ```
-
-> [!TIP]
->
-> For easy migration, you can import `ClackCompatAdapter` instead, it works as
-> drop-in replacement.
 
 ## License ©️
 
