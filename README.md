@@ -42,7 +42,7 @@ export default class extends Generator {
 }
 ```
 
-> [!NOTICE]
+> [!TIP]
 >
 > For easy migration, you can import `ClackCompatAdapter` instead, it works as
 > drop-in replacement.
