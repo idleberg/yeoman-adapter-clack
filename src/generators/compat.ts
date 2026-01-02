@@ -24,7 +24,9 @@ export class ClackCompatGenerator extends ClackBaseGenerator {
 		const questionsArray = Array.isArray(questions) ? questions : [questions];
 		const questionsWithDefaults = this.loadStoredDefaults(questionsArray, storage);
 		const answers = (await this.env.adapter.prompt(questionsWithDefaults as any)) as A;
+
 		this.saveAnswers(questionsArray, answers, storage);
+
 		return answers;
 	}
 }

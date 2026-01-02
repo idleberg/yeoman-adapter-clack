@@ -60,6 +60,7 @@ export abstract class ClackBaseGenerator extends Generator {
 		return questions.map((q) => {
 			if (q.store && storageObj) {
 				const storedValue = storageObj.get(q.name);
+
 				if (storedValue !== undefined) {
 					return { ...q, default: storedValue };
 				}

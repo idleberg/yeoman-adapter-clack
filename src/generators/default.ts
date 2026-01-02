@@ -1,6 +1,6 @@
 import type { BaseOptions, Storage } from 'yeoman-generator';
 import { ClackAdapter } from '../adapter.ts';
-import type { ClackPromptOptions, ClackPromptResult } from '../clack.d.ts';
+import type { ClackPromptOptions, ClackPromptResult } from '../clack.ts';
 import { ClackBaseGenerator } from './base.ts';
 
 /**
@@ -23,7 +23,9 @@ export class ClackGenerator extends ClackBaseGenerator {
 		const questionsArray = Array.isArray(questions) ? questions : [questions];
 		const questionsWithDefaults = this.loadStoredDefaults(questionsArray, storage);
 		const answers = (await this.env.adapter.prompt(questionsWithDefaults)) as A;
+
 		this.saveAnswers(questionsArray, answers, storage);
+
 		return answers;
 	}
 }
