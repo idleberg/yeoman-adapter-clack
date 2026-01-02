@@ -13,8 +13,8 @@
 	"type": "module",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js"
+			"types": "./dist/index.d.mts",
+			"import": "./dist/index.mjs"
 		}
 	},
 	"engines": {
@@ -37,6 +37,11 @@
 		"publish:npm": "np --any-branch",
 		"test": "vitest run"
 	},
+	"dependencies": {
+		"@clack/prompts": "^0.11.0",
+		"@yeoman/adapter": "^4.0.1",
+		"yeoman-generator": "^7.5.1"
+	},
 	"devDependencies": {
 		"@commitlint/cli": "^20.2.0",
 		"@commitlint/config-conventional": "^20.2.0",
@@ -48,7 +53,8 @@
 		"np": "^10.2.0",
 		"tsdown": "^0.18.4",
 		"typescript": "^5.9.3",
-		"vitest": "^4.0.16"
+		"vitest": "^4.0.16",
+		"yeoman-environment": "^5.1.2"
 	},
 	"packageManager": "pnpm@10.27.0+sha512.72d699da16b1179c14ba9e64dc71c9a40988cbdc65c264cb0e489db7de917f20dcf4d64d8723625f2969ba52d4b7e2a1170682d9ac2a5dcaeaab732b7e16f04a"
 }
