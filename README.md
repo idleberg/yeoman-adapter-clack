@@ -68,7 +68,7 @@ const answers = await this.prompt([
 		store: true,
 		when: (answers) => answers.pickFramework === true
 
-	// Clack Multiselect API
+		// Clack Multiselect API
 		message: ' Select a framework',
 		options: [
 			{ value: 'vanilla', label: 'Vanilla' }
