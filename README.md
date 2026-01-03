@@ -77,6 +77,7 @@ const answers = await this.prompt([
 			{ value: 'qwik', label: 'Qwik' }
 		],
 	},
+]);
 ```
 
 See the
