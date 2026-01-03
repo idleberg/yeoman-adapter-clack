@@ -66,7 +66,7 @@ const answers = await this.prompt([
 
 		// Adapter specific, optional properties
 		store: true,
-		when: (answers) => true
+		when: () => true
 
 		// Clack Multiselect API
 		message: ' Select a framework',
