@@ -80,9 +80,10 @@ const answers = await this.prompt([
 ]);
 ```
 
-See the
-[type signature](https://github.com/idleberg/yeoman-adapter-clack/blob/main/src/clack.d.ts)
-for details.
+Supported types are `autocomplete`, `autocompleteMultiselect`, `confirm`,
+`multiselect`, `password`, `select` and `text`. For further details, please
+check the
+[type signatures](https://github.com/idleberg/yeoman-adapter-clack/blob/main/src/clack.d.ts).
 
 #### `ClackCompatAdapter`
 
