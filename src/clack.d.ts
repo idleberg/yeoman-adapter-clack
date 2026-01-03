@@ -57,7 +57,22 @@ export interface AutocompleteMultiSelectOptions extends ClackMultiSelectOptions 
 	store?: boolean;
 }
 
-export type ClackPromptOptions = ConfirmOptions | MultiSelectOptions | PasswordOptions | SelectOptions | TextOptions;
+export interface ExpandOptions<Value = any> extends ClackSelectOptions<Value> {
+	name: string;
+	type: 'expand';
+	when?: When;
+	store?: boolean;
+}
+
+export type ClackPromptOptions =
+	| AutocompleteOptions
+	| AutocompleteMultiSelectOptions
+	| ConfirmOptions
+	| ExpandOptions
+	| MultiSelectOptions
+	| PasswordOptions
+	| SelectOptions
+	| TextOptions;
 
 export interface ClackPromptResult {
 	[key: string]: any;
