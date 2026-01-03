@@ -43,6 +43,20 @@ export interface PasswordOptions extends ClackPasswordOptions {
 	store?: boolean;
 }
 
+export interface AutocompleteOptions extends ClackSelectOptions {
+	name: string;
+	type: 'autocomplete';
+	when?: When;
+	store?: boolean;
+}
+
+export interface AutocompleteMultiSelectOptions extends ClackMultiSelectOptions {
+	name: string;
+	type: 'autocompleteMultiselect';
+	when?: When;
+	store?: boolean;
+}
+
 export type ClackPromptOptions = ConfirmOptions | MultiSelectOptions | PasswordOptions | SelectOptions | TextOptions;
 
 export interface ClackPromptResult {
