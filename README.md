@@ -45,6 +45,52 @@ export default class extends Generator {
 }
 ```
 
+### API ⚙️
+
+#### `ClackAdapter`
+
+Usage: `new ClackAdapter()`
+
+The default adapter implements its own API for prompts. It's basically follows
+Clack prompt API with additional properties based on Yeoman's default prompt
+API.
+
+**Example**
+
+```typescript
+const answers = await this.prompt([
+	{
+		// Adapter specific, required properties
+		type: 'multiselect',
+		name: 'framework',
+
+		// Adapter specific, optional properties
+		store: true,
+		when: (answers) => answers.pickFramework === true
+
+	// Clack Multiselect API
+		message: ' Select a framework',
+		options: [
+			{ value: 'vanilla', label: 'Vanilla' }
+			{ value: 'preact', label: 'Preact' }
+			{ value: 'svelte', label: 'Svelte' }
+			{ value: 'qwik', label: 'Qwik' }
+		],
+	},
+```
+
+See the
+[type signature](https://github.com/idleberg/yeoman-adapter-clack/blob/main/src/clack.d.ts)
+for details.
+
+#### `ClackCompatAdapter`
+
+Usage: `new ClackCompatAdapter()`
+
+This adapter provides an Inquirer-compatible prompt API, so you can follow to
+the official
+[Yeoman documentation](https://yeoman.io/authoring/user-interactions).
+
 ## License ©️
 
 This work is licensed under [The MIT License](LICENSE).
