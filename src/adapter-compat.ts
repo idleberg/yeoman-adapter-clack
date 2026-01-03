@@ -12,9 +12,10 @@ import type { PromptAnswers, PromptQuestions } from 'yeoman-generator';
  *
  * Supported Inquirer properties:
  * - name, message, type, default, when, validate, filter, store
- * - choices (for list/checkbox)
+ * - choices (for list/checkbox/expand)
  * - pageSize (for list/checkbox)
  * - checked (on choice items for checkbox)
+ * - key (on choice items for expand)
  * - required (for inputs)
  *
  * Supported types:
@@ -23,6 +24,7 @@ import type { PromptAnswers, PromptQuestions } from 'yeoman-generator';
  * - confirm: Maps to clack.confirm()
  * - list/rawlist: Maps to clack.select()
  * - checkbox: Maps to clack.multiselect()
+ * - expand: Maps to clack.select() with key hints in message
  * - number: Maps to clack.text() with number validation
  */
 export class ClackCompatAdapter extends TerminalAdapter {
@@ -35,7 +37,6 @@ export class ClackCompatAdapter extends TerminalAdapter {
 		const answers = { ...initialAnswers };
 
 		for (const question of questionsArray) {
-			// Handle `when` conditional
 			if (typeof question.when === 'function') {
 				const whenFn = question.when as (answers: any) => boolean | Promise<boolean>;
 
@@ -60,18 +61,13 @@ export class ClackCompatAdapter extends TerminalAdapter {
 	}
 
 	/**
-	 * Ask a single question using Clack prompts
 	 * Maps pure Inquirer properties to Clack prompts
-	 * Does NOT support Clack-specific properties
 	 */
 	private async askQuestion(question: any, answers: any): Promise<any> {
-		// Resolve message (can be function or string)
 		const message = typeof question.message === 'function' ? question.message(answers) : question.message;
 
-		// Resolve default value from Inquirer's 'default' option
 		const defaultValue = typeof question.default === 'function' ? question.default(answers) : question.default;
 
-		// Handle validate function - adapt Inquirer's validate to clack's format
 		const validate = (value: any) => {
 			// Check required first (for text inputs) - Inquirer standard
 			if (question.required && (!value || (typeof value === 'string' && value.trim() === ''))) {
@@ -139,14 +135,12 @@ export class ClackCompatAdapter extends TerminalAdapter {
 					const option: any =
 						typeof c === 'string' ? { value: c, label: c } : { value: c.value, label: c.name || c.label };
 
-					// Handle checked property from Inquirer
 					if (typeof c === 'object' && c.checked) {
 						option.checked = true;
 					}
 					return option;
 				});
 
-				// Get initial values from checked options
 				const initialCheckedValues = multiselectOptions.filter((opt: any) => opt.checked).map((opt: any) => opt.value);
 
 				const multiselectResult = await clack.multiselect({
@@ -174,8 +168,29 @@ export class ClackCompatAdapter extends TerminalAdapter {
 				return applyFilter(numberResult ? Number(numberResult) : numberResult);
 			}
 
+			case 'expand': {
+				const expandOptions = question.choices.map((c: any) => ({
+					value: c.value || c.key,
+					label: c.key ? `${c.key}) ${c.name || c.label || c.value}` : c.name || c.label || c.value,
+				}));
+
+				const keys = question.choices
+					.map((c: any) => c.key)
+					.filter(Boolean)
+					.join('');
+
+				const hint = keys ? ` (${keys})` : '';
+
+				const expandResult = await clack.select({
+					message: message + hint,
+					options: expandOptions,
+					initialValue: defaultValue,
+				});
+
+				return applyFilter(expandResult);
+			}
+
 			default: {
-				// Fallback to text for unknown types
 				const fallbackResult = await clack.text({
 					message,
 					initialValue: defaultValue,
