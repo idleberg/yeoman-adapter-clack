@@ -60,15 +60,15 @@ API.
 ```typescript
 const answers = await this.prompt([
 	{
-		// Adapter specific, required properties
+		// Adapter-specific, required properties
 		type: 'multiselect',
 		name: 'framework',
 
-		// Adapter specific, optional properties
+		// Adapter-specific, optional properties
 		store: true,
 		when: () => true
 
-		// Clack Multiselect API
+		// Standard Clack API
 		message: ' Select a framework',
 		options: [
 			{ value: 'vanilla', label: 'Vanilla' }
