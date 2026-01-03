@@ -174,7 +174,6 @@ export class ClackCompatAdapter extends TerminalAdapter {
 				return applyFilter(numberResult ? Number(numberResult) : numberResult);
 			}
 
-			case 'input':
 			default: {
 				// Fallback to text for unknown types
 				const fallbackResult = await clack.text({
