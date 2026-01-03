@@ -1,13 +1,12 @@
 {
-	"name": "@idleberg/node-package-template",
+	"name": "yeoman-adapter-clack",
 	"version": "0.0.0",
-	"private": true,
-	"description": "Just my personal package template",
+	"description": "A Yeoman adapter that replaces Inquirer with Clack as default dialog library",
 	"license": "MIT",
 	"author": "Jan T. Sott",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/idleberg/node-package-template.git"
+		"url": "git+https://github.com/idleberg/yeoman-adapter-clack.git"
 	},
 	"keywords": [],
 	"type": "module",
