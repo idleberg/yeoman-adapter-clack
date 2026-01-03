@@ -89,8 +89,7 @@ check the
 
 Usage: `new ClackCompatAdapter()`
 
-This adapter provides an Inquirer-compatible prompt API, so you can follow to
-the official
+This adapter provides an Inquirer-compatible prompt API, see the official
 [Yeoman documentation](https://yeoman.io/authoring/user-interactions).
 
 ## License ©️
