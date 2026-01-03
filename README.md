@@ -69,7 +69,7 @@ const answers = await this.prompt([
 		when: () => true
 
 		// Standard Clack API
-		message: ' Select a framework',
+		message: 'Select a framework',
 		options: [
 			{ value: 'vanilla', label: 'Vanilla' }
 			{ value: 'preact', label: 'Preact' }
