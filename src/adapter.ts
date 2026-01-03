@@ -91,6 +91,25 @@ export class ClackAdapter extends TerminalAdapter {
 					cursorAt: question.cursorAt,
 				});
 
+			case 'expand': {
+				const options = question.options || [];
+				const expandOptions = options.map((c: any) => ({
+					value: c.value || c.key,
+					label: c.key ? `${c.key}) ${c.name || c.label || c.value}` : c.name || c.label || c.value,
+				}));
+
+				const keys = options
+					.map((c: any) => c.key)
+					.filter(Boolean)
+					.join('');
+				const hint = keys ? ` (${keys})` : '';
+
+				return await clack.select({
+					message: question.message + hint,
+					options: expandOptions,
+					initialValue: question.initialValue ?? defaultValue,
+				});
+			}
 			default:
 				throw new Error(`Unknown prompt type: ${(question as any).type}`);
 		}
