@@ -62,8 +62,8 @@ properties based on the default
 const answers = await this.prompt([
 	{
 		// Adapter-specific, required properties
-		type: 'multiselect',
-		name: 'framework',
+		type: 'text',
+		name: 'userName',
 
 		// Adapter-specific, optional properties
 		store: true,
