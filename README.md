@@ -62,20 +62,20 @@ properties based on the default
 const answers = await this.prompt([
 	{
 		// Adapter-specific, required properties
-		type: 'text',
-		name: 'userName',
+		type: "text",
+		name: "userName",
+
+		// Standard Clack API
+		message: "What is your name?",
+		placeholder: "John Appleseed",
+		validate: (value) => {
+			if (value.length < 2) return "Name must be at least 2 characters";
+			return undefined;
+		},
 
 		// Adapter-specific, optional properties
 		store: true,
-		when: () => true
-
-		// Standard Clack API
-		message: 'What is your name?',
-		placeholder: 'John Appleseed',
-		validate: (value) => {
-			if (value.length < 2) return 'Name must be at least 2 characters';
-			return undefined;
-		},
+		when: () => true,
 	},
 ]);
 ```
