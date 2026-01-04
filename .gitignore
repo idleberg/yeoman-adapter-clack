@@ -14,3 +14,4 @@ test-results/
 app.js
 test.ts
 .yo-rc.json
+src/*.spec.ts
