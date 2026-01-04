@@ -52,8 +52,9 @@ export default class extends Generator {
 Usage: `new ClackAdapter()`
 
 The default adapter implements its own API for prompts. It's basically follows
-Clack prompt API with additional properties based on Yeoman's default
-[prompt API](https://yeoman.io/authoring/user-interactions).
+[Clack prompt API](https://bomb.sh/docs/clack/packages/prompts/) with additional
+properties based on the default
+[Yeoman prompt API](https://yeoman.io/authoring/user-interactions).
 
 **Example**
 
