@@ -1,7 +1,7 @@
 {
 	"name": "yeoman-adapter-clack",
 	"version": "0.0.0",
-	"description": "A Yeoman adapter that replaces Inquirer with Clack as default dialog library",
+	"description": "A Yeoman adapter that replaces Inquirer with Clack as the default prompt library",
 	"license": "MIT",
 	"author": "Jan T. Sott",
 	"repository": {

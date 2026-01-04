@@ -1,7 +1,7 @@
 # yeoman-adapter-clack
 
-> A Yeoman adapter that replaces `inquirer` with `@clack/prompts` as default
-> dialog library.
+> A Yeoman adapter that replaces `inquirer` with `@clack/prompts` as the default
+> prompt library.
 
 [![License](https://img.shields.io/github/license/idleberg/yeoman-adapter-clack?color=blue&style=for-the-badge)](https://github.com/idleberg/yeoman-adapter-clack/blob/main/LICENSE)
 [![Version: npm](https://img.shields.io/npm/v/@idleberg/yeoman-adapter-clack?style=for-the-badge)](https://www.npmjs.org/package/@idleberg/yeoman-adapter-clack)
