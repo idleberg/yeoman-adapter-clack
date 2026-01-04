@@ -61,7 +61,7 @@ properties based on the default
 ```typescript
 const answers = await this.prompt([
 	{
-		// Adapter-specific, required properties
+		// Required adapter-specific properties
 		type: "text",
 		name: "userName",
 
@@ -73,7 +73,7 @@ const answers = await this.prompt([
 			return undefined;
 		},
 
-		// Adapter-specific, optional properties
+		// Optional adapter-specific properties
 		store: true,
 		when: () => true,
 	},
