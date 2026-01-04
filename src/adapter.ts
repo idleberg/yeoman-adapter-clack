@@ -92,7 +92,7 @@ export class ClackAdapter extends TerminalAdapter {
 				});
 
 			case 'expand': {
-				const options = question.options || [];
+				const options = (question as any).choices || [];
 				const expandOptions = options.map((c: any) => ({
 					value: c.value || c.key,
 					label: c.key ? `${c.key}) ${c.name || c.label || c.value}` : c.name || c.label || c.value,
