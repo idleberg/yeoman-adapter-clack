@@ -102,6 +102,7 @@ export class ClackAdapter extends TerminalAdapter {
 					.map((c: any) => c.key)
 					.filter(Boolean)
 					.join('');
+
 				const hint = keys ? ` (${keys})` : '';
 
 				return await clack.select({
