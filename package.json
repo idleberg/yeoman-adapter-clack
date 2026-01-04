@@ -8,7 +8,12 @@
 		"type": "git",
 		"url": "git+https://github.com/idleberg/yeoman-adapter-clack.git"
 	},
-	"keywords": [],
+	"keywords": [
+		"yeoman-adapter",
+		"clack",
+		"prompts",
+		"yeoman"
+	],
 	"type": "module",
 	"exports": {
 		".": {
