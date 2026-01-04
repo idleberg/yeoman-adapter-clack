@@ -4,7 +4,7 @@
 > prompt library.
 
 [![License](https://img.shields.io/github/license/idleberg/yeoman-adapter-clack?color=blue&style=for-the-badge)](https://github.com/idleberg/yeoman-adapter-clack/blob/main/LICENSE)
-[![Version: npm](https://img.shields.io/npm/v/@idleberg/yeoman-adapter-clack?style=for-the-badge)](https://www.npmjs.org/package/@idleberg/yeoman-adapter-clack)
+[![Version: npm](https://img.shields.io/npm/v/yeoman-adapter-clack?style=for-the-badge)](https://www.npmjs.org/package/yeoman-adapter-clack)
 ![GitHub branch check runs](https://img.shields.io/github/check-runs/idleberg/yeoman-adapter-clack/main?style=for-the-badge)
 
 ## Installation 💿
