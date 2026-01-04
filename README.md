@@ -69,13 +69,12 @@ const answers = await this.prompt([
 		when: () => true
 
 		// Standard Clack API
-		message: 'Select a framework',
-		options: [
-			{ value: 'vanilla', label: 'Vanilla' }
-			{ value: 'preact', label: 'Preact' }
-			{ value: 'svelte', label: 'Svelte' }
-			{ value: 'qwik', label: 'Qwik' }
-		],
+		message: 'What is your name?',
+		placeholder: 'John Appleseed',
+		validate: (value) => {
+			if (value.length < 2) return 'Name must be at least 2 characters';
+			return undefined;
+		},
 	},
 ]);
 ```
