@@ -139,7 +139,7 @@ export class ClackCompatAdapter extends TerminalAdapter {
 				const selectResult = await clack.select({
 					message,
 					options: selectOptions,
-					initialValue: defaultValue,
+					...(defaultValue !== undefined && { initialValue: defaultValue }),
 					maxItems: question.pageSize,
 				});
 
@@ -172,7 +172,7 @@ export class ClackCompatAdapter extends TerminalAdapter {
 			case 'number': {
 				const numberResult = await clack.text({
 					message,
-					initialValue: defaultValue?.toString(),
+					...(defaultValue !== undefined && { initialValue: defaultValue.toString() }),
 					validate: (value) => {
 						if (value && Number.isNaN(Number(value))) {
 							return 'Please enter a valid number';
@@ -185,22 +185,28 @@ export class ClackCompatAdapter extends TerminalAdapter {
 			}
 
 			case 'expand': {
-				const expandOptions = question.choices.map((c: any) => ({
+				const validChoices = question.choices.filter(
+					(c: any) => c && c.type !== 'separator' && (c.value !== undefined || c.key !== undefined),
+				);
+
+				const expandOptions = validChoices.map((c: any) => ({
 					value: c.value || c.key,
 					label: c.key ? `${c.key}) ${c.name || c.label || c.value}` : c.name || c.label || c.value,
 				}));
 
-				const keys = question.choices
+				const keys = validChoices
 					.map((c: any) => c.key)
 					.filter(Boolean)
 					.join('');
 
 				const hint = keys ? ` (${keys})` : '';
 
+				const initialValue = defaultValue !== undefined ? defaultValue : expandOptions[0]?.value;
+
 				const expandResult = await clack.select({
 					message: message + hint,
 					options: expandOptions,
-					initialValue: defaultValue,
+					...(initialValue !== undefined && { initialValue }),
 				});
 
 				return applyFilter(expandResult);

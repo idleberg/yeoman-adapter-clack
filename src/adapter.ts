@@ -3,7 +3,6 @@ import { TerminalAdapter } from '@yeoman/adapter';
 import type { ClackPromptOptions, ClackPromptResult } from './clack.d.ts';
 
 export class ClackAdapter extends TerminalAdapter {
-	// Queue to serialize prompts - prevents multiple concurrent prompts from interfering
 	private promptQueue: Promise<unknown> = Promise.resolve();
 
 	override async prompt<A extends ClackPromptResult = ClackPromptResult>(
@@ -89,43 +88,53 @@ export class ClackAdapter extends TerminalAdapter {
 					inactive: question.inactive,
 				});
 
-			case 'select':
+			case 'select': {
+				const initialValue = question.initialValue ?? defaultValue;
 				return await clack.select({
 					message: question.message,
 					options: question.options,
-					// Prefer explicit initialValue, fallback to default (for storage support)
-					initialValue: question.initialValue ?? defaultValue,
+					...(initialValue !== undefined && { initialValue }),
 					maxItems: question.maxItems,
 				});
+			}
 
-			case 'multiselect':
+			case 'multiselect': {
+				const initialValues = question.initialValues ?? defaultValue;
 				return await clack.multiselect({
 					message: question.message,
 					options: question.options,
-					// Prefer explicit initialValues, fallback to default (for storage support)
-					initialValues: question.initialValues ?? defaultValue,
+					...(initialValues !== undefined && { initialValues }),
 					required: question.required,
 					cursorAt: question.cursorAt,
 				});
+			}
 
 			case 'expand': {
 				const options = (question as any).choices || [];
-				const expandOptions = options.map((c: any) => ({
+
+				const validChoices = options.filter(
+					(c: any) => c && c.type !== 'separator' && (c.value !== undefined || c.key !== undefined),
+				);
+
+				const expandOptions = validChoices.map((c: any) => ({
 					value: c.value || c.key,
 					label: c.key ? `${c.key}) ${c.name || c.label || c.value}` : c.name || c.label || c.value,
 				}));
 
-				const keys = options
+				const keys = validChoices
 					.map((c: any) => c.key)
 					.filter(Boolean)
 					.join('');
 
 				const hint = keys ? ` (${keys})` : '';
 
+				const resolvedDefault = question.initialValue ?? defaultValue;
+				const initialValue = resolvedDefault !== undefined ? resolvedDefault : expandOptions[0]?.value;
+
 				return await clack.select({
 					message: question.message + hint,
 					options: expandOptions,
-					initialValue: question.initialValue ?? defaultValue,
+					...(initialValue !== undefined && { initialValue }),
 				});
 			}
 			default:
