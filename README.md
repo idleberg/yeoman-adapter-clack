@@ -85,7 +85,7 @@ Supported types are `autocomplete`, `autocompleteMultiselect`, `confirm`,
 there is also an `expand` type matching the behavior of
 [Inquirer](https://www.npmjs.com/package/@inquirer/expand).
 
-For details, please check the
+For further details, please check the
 [type signatures](https://github.com/idleberg/yeoman-adapter-clack/blob/main/src/clack.d.ts).
 
 #### `ClackCompatAdapter`
