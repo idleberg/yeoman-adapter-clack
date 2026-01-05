@@ -3,7 +3,24 @@ import { TerminalAdapter } from '@yeoman/adapter';
 import type { ClackPromptOptions, ClackPromptResult } from './clack.d.ts';
 
 export class ClackAdapter extends TerminalAdapter {
+	// Queue to serialize prompts - prevents multiple concurrent prompts from interfering
+	private promptQueue: Promise<unknown> = Promise.resolve();
+
 	override async prompt<A extends ClackPromptResult = ClackPromptResult>(
+		questions: ClackPromptOptions[] | any,
+		initialAnswers?: Partial<A>,
+	): Promise<A> {
+		const nextPrompt = this.promptQueue.then(
+			async () => await this.executePrompt(questions, initialAnswers),
+			async () => await this.executePrompt(questions, initialAnswers),
+		);
+
+		this.promptQueue = nextPrompt;
+
+		return nextPrompt as Promise<A>;
+	}
+
+	private async executePrompt<A extends ClackPromptResult = ClackPromptResult>(
 		questions: ClackPromptOptions[] | any,
 		initialAnswers?: Partial<A>,
 	): Promise<A> {

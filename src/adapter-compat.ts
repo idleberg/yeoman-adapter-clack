@@ -28,7 +28,23 @@ import type { PromptAnswers, PromptQuestions } from 'yeoman-generator';
  * - number: Maps to clack.text() with number validation
  */
 export class ClackCompatAdapter extends TerminalAdapter {
+	private promptQueue: Promise<unknown> = Promise.resolve();
+
 	override async prompt<A extends PromptAnswers = PromptAnswers>(
+		questions: PromptQuestions<A>,
+		initialAnswers?: Partial<A>,
+	): Promise<A> {
+		const nextPrompt = this.promptQueue.then(
+			async () => await this.executePrompt(questions, initialAnswers),
+			async () => await this.executePrompt(questions, initialAnswers),
+		);
+
+		this.promptQueue = nextPrompt;
+
+		return nextPrompt as Promise<A>;
+	}
+
+	private async executePrompt<A extends PromptAnswers = PromptAnswers>(
 		questions: PromptQuestions<A>,
 		initialAnswers?: Partial<A>,
 	): Promise<A> {
