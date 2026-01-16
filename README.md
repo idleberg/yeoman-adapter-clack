@@ -47,7 +47,7 @@ export default class extends Generator {
 
 > [!TIP]
 >
-> Alternatively, you can use replace the default generator with [@idleberg/yeoman-generator](https://www.npmjs.com/package/@idleberg/yeoman-generator).
+> Alternatively, you can use replace the default generator with [@idleberg/yeoman-generator](https://www.npmjs.com/package/@idleberg/yeoman-generator). This also exposes access to the full Clack prompts API.
 
 ### API ⚙️
 
