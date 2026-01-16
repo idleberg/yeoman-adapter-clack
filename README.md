@@ -97,6 +97,8 @@ This adapter provides an Inquirer-compatible prompt API, see the official
 
 ## Limitations ⛑️
 
+Sadly, not all features can be realized in Clack prompts. The following limitations apply:
+
 - separators are not supported in the compatibility adapter and need to be removed
 - the `expand` type does not support keyboard shortcuts
 
