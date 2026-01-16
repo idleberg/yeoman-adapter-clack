@@ -95,6 +95,11 @@ Usage: `new ClackCompatAdapter()`
 This adapter provides an Inquirer-compatible prompt API, see the official
 [Yeoman documentation](https://yeoman.io/authoring/user-interactions).
 
+## Limitations ⛑️
+
+- separators are not supported in the compatibility adapter and need to be removed
+- the `expand` type does not support keyboard shortcuts
+
 ## License ©️
 
 This work is licensed under [The MIT License](LICENSE).
