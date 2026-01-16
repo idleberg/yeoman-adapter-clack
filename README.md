@@ -45,6 +45,10 @@ export default class extends Generator {
 }
 ```
 
+> [!TIP]
+>
+> Alternatively, you can use replace the default generator with [@idleberg/yeoman-generator](https://www.npmjs.com/package/@idleberg/yeoman-generator).
+
 ### API ⚙️
 
 #### `ClackAdapter`
