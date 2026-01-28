@@ -22,7 +22,7 @@ import type { PromptAnswers, PromptQuestions } from 'yeoman-generator';
  * - input: Maps to clack.text()
  * - password: Maps to clack.password()
  * - confirm: Maps to clack.confirm()
- * - list/rawlist: Maps to clack.select()
+ * - list/rawlist/select: Maps to clack.select()
  * - checkbox: Maps to clack.multiselect()
  * - expand: Maps to clack.select() with key hints in message
  * - number: Maps to clack.text() with number validation
@@ -131,7 +131,8 @@ export class ClackCompatAdapter extends TerminalAdapter {
 			}
 
 			case 'list':
-			case 'rawlist': {
+			case 'rawlist':
+			case 'select': {
 				const selectOptions = question.choices.map((c: any) =>
 					typeof c === 'string' ? { value: c, label: c } : { value: c.value, label: c.name || c.label },
 				);
@@ -203,7 +204,7 @@ export class ClackCompatAdapter extends TerminalAdapter {
 
 				const initialValue = defaultValue !== undefined ? defaultValue : expandOptions[0]?.value;
 
-				const expandResult = await clack.select({
+				const expandResult = await clack.autocomplete({
 					message: message + hint,
 					options: expandOptions,
 					...(initialValue !== undefined && { initialValue }),
