@@ -46,18 +46,18 @@
 		"yeoman-generator": "^7.5.1"
 	},
 	"devDependencies": {
-		"@clack/prompts": "^1.0.0-alpha.10",
-		"@commitlint/cli": "^20.2.0",
-		"@commitlint/config-conventional": "^20.2.0",
+		"@clack/prompts": "^1.0.0",
+		"@commitlint/cli": "^20.3.1",
+		"@commitlint/config-conventional": "^20.3.1",
 		"@e18e/cli": "^0.3.1",
 		"@idleberg/configs": "^0.4.1",
 		"@types/node": "^24.10.0",
-		"@vitest/coverage-v8": "^4.0.16",
+		"@vitest/coverage-v8": "^4.0.18",
 		"concurrently": "^9.2.1",
-		"np": "^10.2.0",
-		"tsdown": "^0.18.4",
+		"np": "^11.0.1",
+		"tsdown": "^0.20.1",
 		"typescript": "^5.9.3",
-		"vitest": "^4.0.16",
+		"vitest": "^4.0.18",
 		"yeoman-environment": "^5.1.2"
 	},
 	"peerDependencies": {
