@@ -16,8 +16,8 @@ importers:
         version: 7.5.1(@types/node@24.10.0)(@yeoman/types@1.9.1(@types/node@24.10.0)(@yeoman/adapter@4.0.1(@types/node@24.10.0))(mem-fs-editor@11.1.4(mem-fs@4.1.2))(mem-fs@4.1.2))(mem-fs@4.1.2)
     devDependencies:
       '@clack/prompts':
-        specifier: ^0.11.0
-        version: 0.11.0
+        specifier: ^1.0.0-alpha.10
+        version: 1.0.0-alpha.10
       '@commitlint/cli':
         specifier: ^20.2.0
         version: 20.2.0(@types/node@24.10.0)(typescript@5.9.3)
@@ -372,17 +372,11 @@ packages:
   '@braidai/lang@1.1.2':
     resolution: {integrity: sha512-qBcknbBufNHlui137Hft8xauQMTZDKdophmLFv05r2eNmdIv/MlPuP4TdUknHG68UdWLgVZwgxVe735HzJNIwA==}
 
-  '@clack/core@0.5.0':
-    resolution: {integrity: sha512-p3y0FIOwaYRUPRcMO7+dlmLh8PSRcrjuTndsiA0WAFbWES0mLZlrjVoBRZ9DzkPFJZG6KGkJmoEAY0ZcVWTkow==}
+  '@clack/core@1.0.0-alpha.8':
+    resolution: {integrity: sha512-WeffZaeeljmQRESBshhrlA3iQZuUYZg72FFoZMtWhhKiNkK6iVpa1RR5YBb7BJetPD/cl4XFMz/FWxTvETHRig==}
 
-  '@clack/core@1.0.0-alpha.6':
-    resolution: {integrity: sha512-eG5P45+oShFG17u9I1DJzLkXYB1hpUgTLi32EfsMjSHLEqJUR8BOBCVFkdbUX2g08eh/HCi6UxNGpPhaac1LAA==}
-
-  '@clack/prompts@0.11.0':
-    resolution: {integrity: sha512-pMN5FcrEw9hUkZA4f+zLlzivQSeQf5dRGJjSUbvVYDLvpKCdQx5OaknvKzgbtXOizhP+SJJJjqEbOe55uKKfAw==}
-
-  '@clack/prompts@1.0.0-alpha.6':
-    resolution: {integrity: sha512-75NCtYOgDHVBE2nLdKPTDYOaESxO0GLAKC7INREp5VbS988Xua1u+588VaGlcvXiLc/kSwc25Cd+4PeTSpY6QQ==}
+  '@clack/prompts@1.0.0-alpha.10':
+    resolution: {integrity: sha512-RpwjRBA1cNlwFWlON1eZ630ErRZTzF6EyDbSWnxPmRDHeA+DL3cwliaBDRBr35ngdIbhu1PvZrxjZNbsG/aYwQ==}
 
   '@commitlint/cli@20.2.0':
     resolution: {integrity: sha512-l37HkrPZ2DZy26rKiTUvdq/LZtlMcxz+PeLv9dzK9NzoFGuJdOQyYU7IEkEQj0pO++uYue89wzOpZ0hcTtoqUA==}
@@ -4436,25 +4430,14 @@ snapshots:
 
   '@braidai/lang@1.1.2': {}
 
-  '@clack/core@0.5.0':
+  '@clack/core@1.0.0-alpha.8':
     dependencies:
       picocolors: 1.1.1
       sisteransi: 1.0.5
 
-  '@clack/core@1.0.0-alpha.6':
+  '@clack/prompts@1.0.0-alpha.10':
     dependencies:
-      picocolors: 1.1.1
-      sisteransi: 1.0.5
-
-  '@clack/prompts@0.11.0':
-    dependencies:
-      '@clack/core': 0.5.0
-      picocolors: 1.1.1
-      sisteransi: 1.0.5
-
-  '@clack/prompts@1.0.0-alpha.6':
-    dependencies:
-      '@clack/core': 1.0.0-alpha.6
+      '@clack/core': 1.0.0-alpha.8
       picocolors: 1.1.1
       sisteransi: 1.0.5
 
@@ -4571,7 +4554,7 @@ snapshots:
   '@e18e/cli@0.3.1(picomatch@4.0.3)':
     dependencies:
       '@arethetypeswrong/core': 0.18.2
-      '@clack/prompts': 1.0.0-alpha.6
+      '@clack/prompts': 1.0.0-alpha.10
       '@publint/pack': 0.1.2
       debug: 4.4.3
       fdir: 6.5.0(picomatch@4.0.3)
