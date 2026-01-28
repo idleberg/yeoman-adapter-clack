@@ -1,4 +1,6 @@
 import type {
+	AutocompleteMultiSelectOptions as ClackAutocompleteMultiSelectOptions,
+	AutocompleteOptions as ClackAutocompleteOptions,
 	ConfirmOptions as ClackConfirmOptions,
 	MultiSelectOptions as ClackMultiSelectOptions,
 	PasswordOptions as ClackPasswordOptions,
@@ -43,14 +45,14 @@ export interface PasswordOptions extends ClackPasswordOptions {
 	store?: boolean;
 }
 
-export interface AutocompleteOptions extends ClackSelectOptions {
+export interface AutocompleteOptions extends ClackAutocompleteOptions {
 	name: string;
 	type: 'autocomplete';
 	when?: When;
 	store?: boolean;
 }
 
-export interface AutocompleteMultiSelectOptions extends ClackMultiSelectOptions {
+export interface AutocompleteMultiSelectOptions extends ClackAutocompleteMultiSelectOptions {
 	name: string;
 	type: 'autocompleteMultiselect';
 	when?: When;
