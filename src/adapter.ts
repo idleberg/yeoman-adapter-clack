@@ -90,6 +90,7 @@ export class ClackAdapter extends TerminalAdapter {
 
 			case 'select': {
 				const initialValue = question.initialValue ?? defaultValue;
+
 				return await clack.select({
 					message: question.message,
 					options: question.options,
@@ -100,6 +101,7 @@ export class ClackAdapter extends TerminalAdapter {
 
 			case 'multiselect': {
 				const initialValues = question.initialValues ?? defaultValue;
+
 				return await clack.multiselect({
 					message: question.message,
 					options: question.options,
@@ -109,6 +111,30 @@ export class ClackAdapter extends TerminalAdapter {
 				});
 			}
 
+			case 'autocomplete': {
+				const acQuestion = question as any;
+				const initialValue = acQuestion.initialValue ?? defaultValue;
+
+				return await clack.autocomplete({
+					message: acQuestion.message,
+					options: acQuestion.options,
+					...(initialValue !== undefined && { initialValue }),
+					placeholder: acQuestion.placeholder,
+				});
+			}
+
+			case 'autocompleteMultiselect': {
+				const acmsQuestion = question as any;
+				const initialValues = acmsQuestion.initialValues ?? defaultValue;
+
+				return await clack.autocompleteMultiselect({
+					message: acmsQuestion.message,
+					options: acmsQuestion.options,
+					...(initialValues !== undefined && { initialValues }),
+					placeholder: acmsQuestion.placeholder,
+					required: acmsQuestion.required,
+				});
+			}
 			case 'expand': {
 				const options = (question as any).choices || [];
 

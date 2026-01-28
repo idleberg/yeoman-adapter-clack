@@ -45,14 +45,14 @@ export interface PasswordOptions extends ClackPasswordOptions {
 	store?: boolean;
 }
 
-export interface AutocompleteOptions extends ClackAutocompleteOptions {
+export interface AutocompleteOptions<Value = any> extends ClackAutocompleteOptions<Value> {
 	name: string;
 	type: 'autocomplete';
 	when?: When;
 	store?: boolean;
 }
 
-export interface AutocompleteMultiSelectOptions extends ClackAutocompleteMultiSelectOptions {
+export interface AutocompleteMultiSelectOptions<Value = any> extends ClackAutocompleteMultiSelectOptions<Value> {
 	name: string;
 	type: 'autocompleteMultiselect';
 	when?: When;
