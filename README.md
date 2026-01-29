@@ -15,12 +15,7 @@ npm install yeoman-adapter-clack
 
 ## Usage 🚀
 
-To make use of this adapter, you need to overwrite the default one.
-
-> [!TIP]
->
-> For easy migration, you can import `ClackCompatAdapter` instead. Unlike the
-> default adapter, it's API-compatible with Inquirer.
+This package exposes two adapters to choose from, implementing either is as easy as the following example. Make sure to read the full documentation for details on each adapter.
 
 ```typescript
 import { ClackAdapter } from "yeoman-adapter-clack";
