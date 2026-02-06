@@ -157,7 +157,7 @@ export class ClackAdapter extends TerminalAdapter {
 				const resolvedDefault = question.initialValue ?? defaultValue;
 				const initialValue = resolvedDefault !== undefined ? resolvedDefault : expandOptions[0]?.value;
 
-				return await clack.select({
+				return await clack.autocomplete({
 					message: question.message + hint,
 					options: expandOptions,
 					...(initialValue !== undefined && { initialValue }),
