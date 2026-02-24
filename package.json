@@ -45,11 +45,10 @@
 		"yeoman-generator": "^7.5.1"
 	},
 	"devDependencies": {
-		"@clack/prompts": "^1.0.0",
-		"@commitlint/cli": "^20.4.1",
-		"@commitlint/config-conventional": "^20.4.1",
-		"@e18e/cli": "^0.3.1",
-		"@idleberg/configs": "^0.4.1",
+		"@clack/prompts": "^1.0.1",
+		"@commitlint/cli": "^20.4.2",
+		"@commitlint/config-conventional": "^20.4.2",
+		"@idleberg/configs": "^0.4.2",
 		"@types/node": "^24.10.0",
 		"@vitest/coverage-v8": "^4.0.18",
 		"concurrently": "^9.2.1",
