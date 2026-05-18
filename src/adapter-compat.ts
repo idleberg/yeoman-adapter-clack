@@ -24,7 +24,7 @@ import type { PromptAnswers, PromptQuestions } from 'yeoman-generator';
  * - confirm: Maps to clack.confirm()
  * - list/rawlist/select: Maps to clack.select()
  * - checkbox: Maps to clack.multiselect()
- * - expand: Maps to clack.select() with key hints in message
+ * - expand: Maps to clack.selectKey() for single-key selection
  * - number: Maps to clack.text() with number validation
  */
 export class ClackCompatAdapter extends TerminalAdapter {
@@ -191,26 +191,24 @@ export class ClackCompatAdapter extends TerminalAdapter {
 				);
 
 				const expandOptions = validChoices.map((c: any) => ({
-					value: c.value || c.key,
-					label: c.key ? `${c.key}) ${c.name || c.label || c.value}` : c.name || c.label || c.value,
+					value: c.key || c.value,
+					label: c.name || c.label || c.value,
 				}));
-
-				const keys = validChoices
-					.map((c: any) => c.key)
-					.filter(Boolean)
-					.join('');
-
-				const hint = keys ? ` (${keys})` : '';
 
 				const initialValue = defaultValue !== undefined ? defaultValue : expandOptions[0]?.value;
 
-				const expandResult = await clack.autocomplete({
-					message: message + hint,
+				const expandResult = await clack.selectKey({
+					message,
 					options: expandOptions,
 					...(initialValue !== undefined && { initialValue }),
 				});
 
-				return applyFilter(expandResult);
+				if (clack.isCancel(expandResult)) {
+					return expandResult;
+				}
+
+				const selected = validChoices.find((c: any) => (c.key || c.value) === expandResult);
+				return applyFilter(selected?.value ?? expandResult);
 			}
 
 			default: {
