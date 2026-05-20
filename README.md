@@ -26,9 +26,11 @@ export default class extends Generator {
 	constructor(args, options) {
 		if (options.env) {
 			const adapter = options.env.adapter;
-			const isTestAdapter = adapter.constructor.name === "TestAdapter";
 
-			if (!isTestAdapter && !(adapter instanceof ClackAdapter)) {
+			const isTestAdapter = adapter.constructor.name === "TestAdapter";
+			const isClackInstance = adapter instanceof ClackAdapter;
+
+			if (!isTestAdapter && !isClackInstance) {
 				options.env.adapter = new ClackAdapter();
 			}
 		} else {
