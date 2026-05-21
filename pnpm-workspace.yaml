@@ -1,0 +1,14 @@
+overrides:
+  tmp@<=0.2.3: '>=0.2.4'
+  lodash-es@>=4.0.0 <=4.17.22: '>=4.17.23'
+  minimatch@<10.2.1: '>=10.2.1'
+  tar@<7.5.8: '>=7.5.8'
+autoInstallPeers: true
+publicHoistPattern:
+  - '*@biomejs/biome*'
+  - '*@e18e/cli*'
+  - '*@total-typescript/tsconfig*'
+  - '*lefthook*'
+allowBuilds:
+  esbuild: false
+  lefthook: true
