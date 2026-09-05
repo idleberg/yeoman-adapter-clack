@@ -38,7 +38,7 @@
 		"prepack": "npm run build",
 		"publish:jsr": "deno publish",
 		"publish:npm": "np",
-		"test": "#vitest run"
+		"test": "vitest run"
 	},
 	"dependencies": {
 		"@yeoman/adapter": "^5.0.0",
