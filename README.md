@@ -82,7 +82,8 @@ const answers = await this.prompt([
 ```
 
 Supported types are `autocomplete`, `autocompleteMultiselect`, `confirm`,
-`multiselect`, `password`, `select` and `text`. For backwards-compatibility,
+`date`, `groupMultiselect`, `multiline`, `multiselect`, `password`, `path`,
+`select`, `selectKey` and `text`. For backwards-compatibility,
 there is also an `expand` type matching the behavior of
 [Inquirer](https://www.npmjs.com/package/@inquirer/expand).
 

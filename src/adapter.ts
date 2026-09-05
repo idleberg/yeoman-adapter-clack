@@ -73,6 +73,43 @@ export class ClackAdapter extends TerminalAdapter {
 					validate: question.validate,
 				});
 
+			case 'multiline':
+				return await clack.multiline({
+					message: question.message,
+					placeholder: question.placeholder,
+					defaultValue: question.defaultValue,
+					initialValue: question.initialValue ?? defaultValue,
+					showSubmit: question.showSubmit,
+					validate: question.validate,
+				});
+
+			case 'date': {
+				const initialValue = question.initialValue ?? defaultValue;
+
+				return await clack.date({
+					message: question.message,
+					format: question.format,
+					locale: question.locale,
+					defaultValue: question.defaultValue,
+					...(initialValue !== undefined && { initialValue }),
+					minDate: question.minDate,
+					maxDate: question.maxDate,
+					validate: question.validate,
+				});
+			}
+
+			case 'path': {
+				const initialValue = question.initialValue ?? defaultValue;
+
+				return await clack.path({
+					message: question.message,
+					root: question.root,
+					directory: question.directory,
+					...(initialValue !== undefined && { initialValue }),
+					validate: question.validate,
+				});
+			}
+
 			case 'password':
 				return await clack.password({
 					message: question.message,
@@ -108,6 +145,31 @@ export class ClackAdapter extends TerminalAdapter {
 					...(initialValues !== undefined && { initialValues }),
 					required: question.required,
 					cursorAt: question.cursorAt,
+				});
+			}
+
+			case 'groupMultiselect': {
+				const initialValues = question.initialValues ?? defaultValue;
+
+				return await clack.groupMultiselect({
+					message: question.message,
+					options: question.options,
+					...(initialValues !== undefined && { initialValues }),
+					maxItems: question.maxItems,
+					required: question.required,
+					cursorAt: question.cursorAt,
+					selectableGroups: question.selectableGroups,
+				});
+			}
+
+			case 'selectKey': {
+				const initialValue = question.initialValue ?? defaultValue;
+
+				return await clack.selectKey({
+					message: question.message,
+					options: question.options,
+					...(initialValue !== undefined && { initialValue }),
+					caseSensitive: question.caseSensitive,
 				});
 			}
 

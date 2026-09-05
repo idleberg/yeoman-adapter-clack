@@ -2,8 +2,13 @@ import type {
 	AutocompleteMultiSelectOptions as ClackAutocompleteMultiSelectOptions,
 	AutocompleteOptions as ClackAutocompleteOptions,
 	ConfirmOptions as ClackConfirmOptions,
+	DateOptions as ClackDateOptions,
+	GroupMultiSelectOptions as ClackGroupMultiSelectOptions,
+	MultiLineOptions as ClackMultiLineOptions,
 	MultiSelectOptions as ClackMultiSelectOptions,
 	PasswordOptions as ClackPasswordOptions,
+	PathOptions as ClackPathOptions,
+	SelectKeyOptions as ClackSelectKeyOptions,
 	SelectOptions as ClackSelectOptions,
 	TextOptions as ClackTextOptions,
 } from '@clack/prompts';
@@ -66,13 +71,53 @@ export interface ExpandOptions<Value = any> extends ClackSelectOptions<Value> {
 	store?: boolean;
 }
 
+export interface DateOptions extends ClackDateOptions {
+	name: string;
+	type: 'date';
+	when?: When;
+	store?: boolean;
+}
+
+export interface MultiLineOptions extends ClackMultiLineOptions {
+	name: string;
+	type: 'multiline';
+	when?: When;
+	store?: boolean;
+}
+
+export interface PathOptions extends ClackPathOptions {
+	name: string;
+	type: 'path';
+	when?: When;
+	store?: boolean;
+}
+
+export interface GroupMultiSelectOptions<Value = any> extends ClackGroupMultiSelectOptions<Value> {
+	name: string;
+	type: 'groupMultiselect';
+	when?: When;
+	store?: boolean;
+}
+
+export interface SelectKeyOptions<Value extends string = string> extends ClackSelectKeyOptions<Value> {
+	name: string;
+	type: 'selectKey';
+	when?: When;
+	store?: boolean;
+}
+
 export type ClackPromptOptions =
 	| AutocompleteOptions
 	| AutocompleteMultiSelectOptions
 	| ConfirmOptions
+	| DateOptions
 	| ExpandOptions
+	| GroupMultiSelectOptions
+	| MultiLineOptions
 	| MultiSelectOptions
 	| PasswordOptions
+	| PathOptions
+	| SelectKeyOptions
 	| SelectOptions
 	| TextOptions;
 
