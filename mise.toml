@@ -1,0 +1,9 @@
+[tools]
+node = "22"
+lefthook = "latest"
+
+[hooks]
+postinstall = "lefthook install"
+
+[settings]
+node.corepack = true
