@@ -119,8 +119,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(@types/node@26.4.1)
       yeoman-generator:
-        specifier: ^8.3.0
-        version: 8.3.0(@types/node@26.4.1)(@yeoman/types@1.9.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs-editor@12.0.8(@types/node@26.4.1)(mem-fs@4.1.2))(mem-fs@4.1.2))(mem-fs@4.1.2)
+        specifier: ^8.3.1
+        version: 8.3.1(@types/node@26.4.1)(@yeoman/types@1.13.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12)))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))(supports-color@10.2.2)
     devDependencies:
       '@clack/prompts':
         specifier: ^1.7.0
@@ -157,7 +157,7 @@ importers:
         version: 5.0.0(@types/node@26.4.1)(@vitest/coverage-v8@5.0.0)(vite@7.3.1(@types/node@26.4.1)(jiti@2.6.1))
       yeoman-environment:
         specifier: ^6.3.0
-        version: 6.3.0(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(@yeoman/types@1.9.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs-editor@12.0.8(@types/node@26.4.1)(mem-fs@4.1.2))(mem-fs@4.1.2))(mem-fs@4.1.2)
+        version: 6.3.0(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(@yeoman/types@1.13.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12)))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))(supports-color@10.2.2)
 
 packages:
 
@@ -1222,9 +1222,6 @@ packages:
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
 
-  '@types/node@24.13.3':
-    resolution: {integrity: sha512-Dh8vAsV36ig5wa9OX4pXvMc9D3Veibfw2wix0CUwYODLD8nkj9UsLjASr49nPg+2eKzxhBV+v7L8pXvT4e639Q==}
-
   '@types/node@26.4.1':
     resolution: {integrity: sha512-k97ENvZWtvA6yqz5/FS6a7duDgOPEeOQOc2iKS/nY6mX6qJUKtLnWzQS+Xj6tXweyj6ZcTAK2Qecetnvi9nCLA==}
 
@@ -1290,20 +1287,17 @@ packages:
     peerDependencies:
       '@types/node': '>=18.19.44'
 
-  '@yeoman/types@1.9.1':
-    resolution: {integrity: sha512-5BMdA/zMzLv/ahnL1ktaV46nSXorb4sU4kQPQKDhIcK8ERbx9TAbGAE+XAlCXKioNIiOrihYj6gW1d/GEfU9Zw==}
+  '@yeoman/types@1.13.1':
+    resolution: {integrity: sha512-HNwITXGjzxct9j3cvyHvCKUA/isuvtLHHGtEH5Com1vFOqYMTZZ16Skk+UM7GJDKqhTEJaIhF/xY7O2/ByQ/sA==}
     engines: {node: ^16.13.0 || >=18.12.0}
     peerDependencies:
       '@types/node': '>=16.18.26'
-      '@yeoman/adapter': ^1.6.0 || ^2.0.0-beta.0 || ^3.0.0 || ^4.0.0
-      mem-fs: ^3.0.0 || ^4.0.0-beta.1
-      mem-fs-editor: ^10.0.2 || >=10.0.2
+      '@yeoman/adapter': ^1.6.0 || ^2.0.0-beta.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
+      mem-fs: ^3.0.0 || ^4.0.0-beta.1 || ^6.0.0
     peerDependenciesMeta:
       '@yeoman/adapter':
         optional: true
       mem-fs:
-        optional: true
-      mem-fs-editor:
         optional: true
 
   '@yuku-codegen/binding-android-arm64@0.9.3':
@@ -2555,9 +2549,17 @@ packages:
       '@types/node':
         optional: true
 
-  mem-fs@4.1.2:
-    resolution: {integrity: sha512-CMwusHK+Kz0tu1qjgbd0rwcJxzgg76jlkPpqK+pDTv8Hth8JyM7JlgxNWaAFRKe969HATPTz/sp8T63QflyI+w==}
+  mem-fs@4.1.5:
+    resolution: {integrity: sha512-6aWRo1jLo82ngo44tPQXjzINN7gvSNWhMU96I+O5nsJWdPi5vbUJWMTDGZDb/AVpCJRpaLGcFgrIBIpyk0DuUA==}
     engines: {node: '>=18.0.0'}
+    peerDependencies:
+      '@types/node': '>=18'
+      '@types/vinyl': ^2.0.12
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      '@types/vinyl':
+        optional: true
 
   meow@14.1.0:
     resolution: {integrity: sha512-EDYo6VlmtnumlcBCbh1gLJ//9jvM/ndXHfVXIFrZVr6fGcwTUyCTFNTLCKuY3ffbK8L/+3Mzqnd58RojiZqHVw==}
@@ -3434,9 +3436,6 @@ packages:
   unconfig-core@7.5.0:
     resolution: {integrity: sha512-Su3FauozOGP44ZmKdHy2oE6LPjk51M/TRRjHv2HNCWiDvfvCoxC2lno6jevMA91MYAdCdwP05QnWdWpSbncX/w==}
 
-  undici-types@7.18.2:
-    resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
-
   undici-types@8.3.0:
     resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
 
@@ -3667,8 +3666,8 @@ packages:
       '@yeoman/types': ^1.10.3
       mem-fs: ^4.1.4 || ^6.0.0
 
-  yeoman-generator@8.3.0:
-    resolution: {integrity: sha512-stpxbDj2KQj4CysTd15z51uMJmfXdTzvlQ9TSMwZxVaN5NJ6a0zWMX84GNx+bEhntZs6FoFS5Hnkdck4NRyu1g==}
+  yeoman-generator@8.3.1:
+    resolution: {integrity: sha512-XYyd8ELUrByoGpqP4Lbd1oVjalWMCrEOG4ZXiyi21/yjGSIFAfORvzkEnjXztjdMNYqfeT6laGxhJb8hiA0wWg==}
     engines: {node: ^20.17.0 || >=22.9.0}
     peerDependencies:
       '@types/node': '>=20.19.35'
@@ -4210,9 +4209,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  '@kwsites/file-exists@1.1.1':
+  '@kwsites/file-exists@1.1.1(supports-color@10.2.2)':
     dependencies:
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -4233,24 +4232,24 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.3
 
-  '@npmcli/agent@4.0.2':
+  '@npmcli/agent@4.0.2(supports-color@10.2.2)':
     dependencies:
       agent-base: 7.1.4
-      http-proxy-agent: 7.0.2
-      https-proxy-agent: 7.0.6
+      http-proxy-agent: 7.0.2(supports-color@10.2.2)
+      https-proxy-agent: 7.0.6(supports-color@10.2.2)
       lru-cache: 11.5.2
-      socks-proxy-agent: 8.0.5
+      socks-proxy-agent: 8.0.5(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
 
-  '@npmcli/arborist@9.9.1':
+  '@npmcli/arborist@9.9.1(supports-color@10.2.2)':
     dependencies:
       '@gar/promise-retry': 1.0.3
       '@isaacs/string-locale-compare': 1.1.0
       '@npmcli/fs': 5.0.0
       '@npmcli/installed-package-contents': 4.0.0
       '@npmcli/map-workspaces': 5.0.3
-      '@npmcli/metavuln-calculator': 9.0.3
+      '@npmcli/metavuln-calculator': 9.0.3(supports-color@10.2.2)
       '@npmcli/name-from-folder': 4.0.0
       '@npmcli/node-gyp': 5.0.0
       '@npmcli/package-json': 7.0.5
@@ -4268,8 +4267,8 @@ snapshots:
       npm-install-checks: 8.0.0
       npm-package-arg: 13.0.2
       npm-pick-manifest: 11.0.3
-      npm-registry-fetch: 19.1.1
-      pacote: 21.5.1
+      npm-registry-fetch: 19.1.1(supports-color@10.2.2)
+      pacote: 21.5.1(supports-color@10.2.2)
       parse-conflict-json: 5.0.1
       proc-log: 6.1.0
       proggy: 4.0.0
@@ -4309,11 +4308,11 @@ snapshots:
       glob: 13.0.6
       minimatch: 10.2.6
 
-  '@npmcli/metavuln-calculator@9.0.3':
+  '@npmcli/metavuln-calculator@9.0.3(supports-color@10.2.2)':
     dependencies:
       cacache: 20.0.4
       json-parse-even-better-errors: 5.0.0
-      pacote: 21.5.1
+      pacote: 21.5.1(supports-color@10.2.2)
       proc-log: 6.1.0
       semver: 7.8.5
     transitivePeerDependencies:
@@ -4513,21 +4512,21 @@ snapshots:
 
   '@sigstore/protobuf-specs@0.5.2': {}
 
-  '@sigstore/sign@4.1.1':
+  '@sigstore/sign@4.1.1(supports-color@10.2.2)':
     dependencies:
       '@gar/promise-retry': 1.0.3
       '@sigstore/bundle': 4.0.0
       '@sigstore/core': 3.2.1
       '@sigstore/protobuf-specs': 0.5.2
-      make-fetch-happen: 15.0.6
+      make-fetch-happen: 15.0.6(supports-color@10.2.2)
       proc-log: 6.1.0
     transitivePeerDependencies:
       - supports-color
 
-  '@sigstore/tuf@4.0.2':
+  '@sigstore/tuf@4.0.2(supports-color@10.2.2)':
     dependencies:
       '@sigstore/protobuf-specs': 0.5.2
-      tuf-js: 4.1.0
+      tuf-js: 4.1.0(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -4587,10 +4586,6 @@ snapshots:
 
   '@types/ms@2.1.0': {}
 
-  '@types/node@24.13.3':
-    dependencies:
-      undici-types: 7.18.2
-
   '@types/node@26.4.1':
     dependencies:
       undici-types: 8.3.0
@@ -4602,7 +4597,7 @@ snapshots:
   '@types/vinyl@2.0.12':
     dependencies:
       '@types/expect': 1.20.4
-      '@types/node': 24.13.3
+      '@types/node': 26.4.1
 
   '@vitest/coverage-v8@5.0.0(vitest@5.0.0)':
     dependencies:
@@ -4645,18 +4640,18 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@yeoman/conflicter@4.2.0(@types/node@26.4.1)(@yeoman/types@1.9.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs-editor@12.0.8(@types/node@26.4.1)(mem-fs@4.1.2))(mem-fs@4.1.2))(mem-fs@4.1.2)':
+  '@yeoman/conflicter@4.2.0(@types/node@26.4.1)(@yeoman/types@1.13.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12)))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))(supports-color@10.2.2)':
     dependencies:
       '@types/node': 26.4.1
       '@yeoman/transform': 2.1.2(@types/node@26.4.1)
-      '@yeoman/types': 1.9.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs-editor@12.0.8(@types/node@26.4.1)(mem-fs@4.1.2))(mem-fs@4.1.2)
+      '@yeoman/types': 1.13.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))
       binary-extensions: 3.1.0
       cli-table: 0.3.11
       dateformat: 5.0.3
       diff: 9.0.0
       isbinaryfile: 5.0.7
-      mem-fs: 4.1.2
-      mem-fs-editor: 12.0.8(@types/node@26.4.1)(mem-fs@4.1.2)
+      mem-fs: 4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12)
+      mem-fs-editor: 12.0.8(@types/node@26.4.1)(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))(supports-color@10.2.2)
       minimatch: 10.2.6
       p-transform: 5.0.1
       pretty-bytes: 7.1.3
@@ -4674,13 +4669,12 @@ snapshots:
       '@types/node': 26.4.1
       minimatch: 10.2.6
 
-  '@yeoman/types@1.9.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs-editor@12.0.8(@types/node@26.4.1)(mem-fs@4.1.2))(mem-fs@4.1.2)':
+  '@yeoman/types@1.13.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))':
     dependencies:
       '@types/node': 26.4.1
     optionalDependencies:
       '@yeoman/adapter': 5.0.0(@types/node@26.4.1)
-      mem-fs: 4.1.2
-      mem-fs-editor: 12.0.8(@types/node@26.4.1)(mem-fs@4.1.2)
+      mem-fs: 4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12)
 
   '@yuku-codegen/binding-android-arm64@0.9.3':
     optional: true
@@ -5087,9 +5081,11 @@ snapshots:
 
   dateformat@5.0.3: {}
 
-  debug@4.4.3:
+  debug@4.4.3(supports-color@10.2.2):
     dependencies:
       ms: 2.1.3
+    optionalDependencies:
+      supports-color: 10.2.2
 
   deep-extend@0.6.0: {}
 
@@ -5313,9 +5309,9 @@ snapshots:
 
   first-chunk-stream@5.0.0: {}
 
-  fly-import@1.0.0:
+  fly-import@1.0.0(supports-color@10.2.2):
     dependencies:
-      '@npmcli/arborist': 9.9.1
+      '@npmcli/arborist': 9.9.1(supports-color@10.2.2)
       env-paths: 3.0.0
       registry-auth-token: 5.1.1
       registry-url: 7.2.0
@@ -5409,17 +5405,17 @@ snapshots:
 
   http-cache-semantics@4.2.0: {}
 
-  http-proxy-agent@7.0.2:
+  http-proxy-agent@7.0.2(supports-color@10.2.2):
     dependencies:
       agent-base: 7.1.4
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
 
-  https-proxy-agent@7.0.6:
+  https-proxy-agent@7.0.6(supports-color@10.2.2):
     dependencies:
       agent-base: 7.1.4
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -5768,10 +5764,10 @@ snapshots:
       '@babel/types': 7.29.8
       source-map-js: 1.2.1
 
-  make-fetch-happen@15.0.6:
+  make-fetch-happen@15.0.6(supports-color@10.2.2):
     dependencies:
       '@gar/promise-retry': 1.0.3
-      '@npmcli/agent': 4.0.2
+      '@npmcli/agent': 4.0.2(supports-color@10.2.2)
       '@npmcli/redact': 4.0.0
       cacache: 20.0.4
       http-cache-semantics: 4.2.0
@@ -5785,17 +5781,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  mem-fs-editor@12.0.8(@types/node@26.4.1)(mem-fs@4.1.2):
+  mem-fs-editor@12.0.8(@types/node@26.4.1)(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))(supports-color@10.2.2):
     dependencies:
       '@types/ejs': 3.1.5
       '@types/picomatch': 4.0.3
       binaryextensions: 6.11.0
       commondir: 1.0.1
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       deep-extend: 0.6.0
       ejs: 6.0.1
       isbinaryfile: 5.0.7
-      mem-fs: 4.1.2
+      mem-fs: 4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12)
       minimatch: 10.2.6
       multimatch: 8.0.0
       normalize-path: 3.0.0
@@ -5809,12 +5805,13 @@ snapshots:
       - react-native-b4a
       - supports-color
 
-  mem-fs@4.1.2:
+  mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12):
     dependencies:
-      '@types/node': 24.13.3
-      '@types/vinyl': 2.0.12
       vinyl: 3.0.1
       vinyl-file: 5.0.0
+    optionalDependencies:
+      '@types/node': 26.4.1
+      '@types/vinyl': 2.0.12
     transitivePeerDependencies:
       - bare-abort-controller
       - react-native-b4a
@@ -6020,11 +6017,11 @@ snapshots:
       npm-package-arg: 13.0.2
       semver: 7.8.5
 
-  npm-registry-fetch@19.1.1:
+  npm-registry-fetch@19.1.1(supports-color@10.2.2):
     dependencies:
       '@npmcli/redact': 4.0.0
       jsonparse: 1.3.1
-      make-fetch-happen: 15.0.6
+      make-fetch-happen: 15.0.6(supports-color@10.2.2)
       minipass: 7.1.3
       minipass-fetch: 5.0.2
       minizlib: 3.1.0
@@ -6149,7 +6146,7 @@ snapshots:
 
   package-manager-detector@1.8.0: {}
 
-  pacote@21.5.1:
+  pacote@21.5.1(supports-color@10.2.2):
     dependencies:
       '@gar/promise-retry': 1.0.3
       '@npmcli/git': 7.0.2
@@ -6163,9 +6160,9 @@ snapshots:
       npm-package-arg: 13.0.2
       npm-packlist: 10.0.4
       npm-pick-manifest: 11.0.3
-      npm-registry-fetch: 19.1.1
+      npm-registry-fetch: 19.1.1(supports-color@10.2.2)
       proc-log: 6.1.0
-      sigstore: 4.1.1
+      sigstore: 4.1.1(supports-color@10.2.2)
       ssri: 13.0.1
       tar: 7.5.22
     transitivePeerDependencies:
@@ -6454,24 +6451,24 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  sigstore@4.1.1:
+  sigstore@4.1.1(supports-color@10.2.2):
     dependencies:
       '@sigstore/bundle': 4.0.0
       '@sigstore/core': 3.2.1
       '@sigstore/protobuf-specs': 0.5.2
-      '@sigstore/sign': 4.1.1
-      '@sigstore/tuf': 4.0.2
+      '@sigstore/sign': 4.1.1(supports-color@10.2.2)
+      '@sigstore/tuf': 4.0.2(supports-color@10.2.2)
       '@sigstore/verify': 3.1.1
     transitivePeerDependencies:
       - supports-color
 
-  simple-git@3.36.0:
+  simple-git@3.36.0(supports-color@10.2.2):
     dependencies:
-      '@kwsites/file-exists': 1.1.1
+      '@kwsites/file-exists': 1.1.1(supports-color@10.2.2)
       '@kwsites/promise-deferred': 1.1.1
       '@simple-git/args-pathspec': 1.0.3
       '@simple-git/argv-parser': 1.1.1
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -6483,10 +6480,10 @@ snapshots:
 
   smart-buffer@4.2.0: {}
 
-  socks-proxy-agent@8.0.5:
+  socks-proxy-agent@8.0.5(supports-color@10.2.2):
     dependencies:
       agent-base: 7.1.4
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       socks: 2.8.10
     transitivePeerDependencies:
       - supports-color
@@ -6725,11 +6722,11 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tuf-js@4.1.0:
+  tuf-js@4.1.0(supports-color@10.2.2):
     dependencies:
       '@tufjs/models': 4.1.0
-      debug: 4.4.3
-      make-fetch-happen: 15.0.6
+      debug: 4.4.3(supports-color@10.2.2)
+      make-fetch-happen: 15.0.6(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -6751,8 +6748,6 @@ snapshots:
     dependencies:
       '@quansync/fs': 1.0.0
       quansync: 1.0.0
-
-  undici-types@7.18.2: {}
 
   undici-types@8.3.0: {}
 
@@ -6933,25 +6928,25 @@ snapshots:
       y18n: 5.0.8
       yargs-parser: 22.0.0
 
-  yeoman-environment@6.3.0(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(@yeoman/types@1.9.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs-editor@12.0.8(@types/node@26.4.1)(mem-fs@4.1.2))(mem-fs@4.1.2))(mem-fs@4.1.2):
+  yeoman-environment@6.3.0(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(@yeoman/types@1.13.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12)))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))(supports-color@10.2.2):
     dependencies:
       '@yeoman/adapter': 5.0.0(@types/node@26.4.1)
-      '@yeoman/conflicter': 4.2.0(@types/node@26.4.1)(@yeoman/types@1.9.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs-editor@12.0.8(@types/node@26.4.1)(mem-fs@4.1.2))(mem-fs@4.1.2))(mem-fs@4.1.2)
+      '@yeoman/conflicter': 4.2.0(@types/node@26.4.1)(@yeoman/types@1.13.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12)))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))(supports-color@10.2.2)
       '@yeoman/namespace': 2.1.0
       '@yeoman/transform': 2.1.2(@types/node@26.4.1)
-      '@yeoman/types': 1.9.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs-editor@12.0.8(@types/node@26.4.1)(mem-fs@4.1.2))(mem-fs@4.1.2)
+      '@yeoman/types': 1.13.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))
       arrify: 3.0.0
       chalk: 5.6.2
       commander: 14.0.3
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       execa: 9.6.1
-      fly-import: 1.0.0
+      fly-import: 1.0.0(supports-color@10.2.2)
       globby: 16.2.4
       grouped-queue: 2.1.0
       locate-path: 8.0.0
       lodash-es: 4.18.1
-      mem-fs: 4.1.2
-      mem-fs-editor: 12.0.8(@types/node@26.4.1)(mem-fs@4.1.2)
+      mem-fs: 4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12)
+      mem-fs-editor: 12.0.8(@types/node@26.4.1)(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))(supports-color@10.2.2)
       semver: 7.8.5
       slash: 5.1.0
       untildify: 6.0.0
@@ -6962,23 +6957,23 @@ snapshots:
       - react-native-b4a
       - supports-color
 
-  yeoman-generator@8.3.0(@types/node@26.4.1)(@yeoman/types@1.9.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs-editor@12.0.8(@types/node@26.4.1)(mem-fs@4.1.2))(mem-fs@4.1.2))(mem-fs@4.1.2):
+  yeoman-generator@8.3.1(@types/node@26.4.1)(@yeoman/types@1.13.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12)))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))(supports-color@10.2.2):
     dependencies:
       '@types/debug': 4.1.13
       '@types/lodash-es': 4.17.12
       '@yeoman/namespace': 2.1.0
-      '@yeoman/types': 1.9.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs-editor@12.0.8(@types/node@26.4.1)(mem-fs@4.1.2))(mem-fs@4.1.2)
+      '@yeoman/types': 1.13.1(@types/node@26.4.1)(@yeoman/adapter@5.0.0(@types/node@26.4.1))(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))
       chalk: 5.6.2
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       execa: 9.6.1
       latest-version: 9.0.0
       lodash-es: 4.18.1
-      mem-fs: 4.1.2
-      mem-fs-editor: 12.0.8(@types/node@26.4.1)(mem-fs@4.1.2)
+      mem-fs: 4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12)
+      mem-fs-editor: 12.0.8(@types/node@26.4.1)(mem-fs@4.1.5(@types/node@26.4.1)(@types/vinyl@2.0.12))(supports-color@10.2.2)
       minimist: 1.2.8
       read-package-up: 12.0.0
       semver: 7.8.5
-      simple-git: 3.36.0
+      simple-git: 3.36.0(supports-color@10.2.2)
       sort-keys: 6.0.1
       text-table: 0.2.0
       type-fest: 5.9.0
